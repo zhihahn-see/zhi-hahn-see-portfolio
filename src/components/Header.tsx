@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +36,7 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsOpen(false);
   };
 
   return (
@@ -78,7 +80,7 @@ const Header = () => {
         </nav>
         
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <button className="p-2 text-foreground" aria-label="Menu">
                 <Menu className="w-6 h-6" />
@@ -93,23 +95,17 @@ const Header = () => {
                   { id: 'education', label: 'Education' },
                   { id: 'contact', label: 'Contact' }
                 ].map(item => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      scrollToSection(item.id);
-                      // Close the sheet when a link is clicked
-                      const sheetElement = document.querySelector('[data-state="open"]');
-                      if (sheetElement) {
-                        sheetElement.setAttribute('data-state', 'closed');
-                      }
-                    }}
-                    className={cn(
-                      'nav-link text-left py-2 px-4 rounded-md hover:bg-accent/10',
-                      activeSection === item.id && 'bg-accent/10 font-medium'
-                    )}
-                  >
-                    {item.label}
-                  </button>
+                  <SheetClose key={item.id} asChild>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={cn(
+                        'nav-link text-left py-2 px-4 rounded-md hover:bg-accent/10',
+                        activeSection === item.id && 'bg-accent/10 font-medium'
+                      )}
+                    >
+                      {item.label}
+                    </button>
+                  </SheetClose>
                 ))}
               </nav>
             </SheetContent>
