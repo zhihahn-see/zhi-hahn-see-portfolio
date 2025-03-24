@@ -84,8 +84,8 @@ const Header = () => {
                 <Menu className="w-6 h-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[250px] sm:w-[300px]">
-              <nav className="flex flex-col space-y-4 mt-8">
+            <SheetContent side="top" className="pt-16 pb-6 px-4">
+              <nav className="flex flex-col space-y-4">
                 {[
                   { id: 'home', label: 'Home' },
                   { id: 'experience', label: 'Experience' },
@@ -97,7 +97,11 @@ const Header = () => {
                     key={item.id}
                     onClick={() => {
                       scrollToSection(item.id);
-                      document.querySelector('[data-state="open"]')?.setAttribute('data-state', 'closed');
+                      // Close the sheet when a link is clicked
+                      const sheetElement = document.querySelector('[data-state="open"]');
+                      if (sheetElement) {
+                        sheetElement.setAttribute('data-state', 'closed');
+                      }
                     }}
                     className={cn(
                       'nav-link text-left py-2 px-4 rounded-md hover:bg-accent/10',
