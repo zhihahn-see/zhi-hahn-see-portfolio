@@ -58,23 +58,37 @@ export function useElementInView() {
   return { ref, isInView };
 }
 
-export function useTypewriter(text: string, speed: number = 50) {
+interface TypewriterOptions {
+  startDelay?: number;
+}
+
+export function useTypewriter(text: string, options: TypewriterOptions = {}) {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
-
+  const { startDelay = 0 } = options;
+  
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(prevText => prevText + text[currentIndex]);
+    let timeout: NodeJS.Timeout;
+    
+    if (startDelay > 0 && currentIndex === 0) {
+      timeout = setTimeout(() => {
+        setCurrentIndex(1);
+      }, startDelay);
+      return () => clearTimeout(timeout);
+    }
+    
+    if (currentIndex > 0 && currentIndex <= text.length) {
+      timeout = setTimeout(() => {
+        setDisplayText(text.substring(0, currentIndex));
         setCurrentIndex(prevIndex => prevIndex + 1);
-      }, speed);
+      }, 80);
       
       return () => clearTimeout(timeout);
-    } else {
+    } else if (currentIndex > text.length) {
       setIsComplete(true);
     }
-  }, [currentIndex, speed, text]);
+  }, [currentIndex, text, startDelay]);
 
   return { displayText, isComplete };
 }

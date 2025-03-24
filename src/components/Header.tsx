@@ -11,7 +11,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ['home', 'experience', 'skills', 'education', 'community', 'contact'];
+      const sections = ['home', 'experience', 'skills', 'education', 'contact'];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
@@ -60,7 +60,6 @@ const Header = () => {
             { id: 'experience', label: 'Experience' },
             { id: 'skills', label: 'Skills' },
             { id: 'education', label: 'Education' },
-            { id: 'community', label: 'Community' },
             { id: 'contact', label: 'Contact' }
           ].map(item => (
             <button

@@ -59,7 +59,7 @@ const Contact = () => {
               
               <div className="space-y-6">
                 <a 
-                  href="mailto:info@zhihahnsce.com" 
+                  href="mailto:zsee@usc.edu" 
                   className="flex items-center gap-4 p-4 rounded-lg transition-colors hover:bg-secondary/50"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -67,12 +67,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <p className="text-muted-foreground">info@zhihahnsce.com</p>
+                    <p className="text-muted-foreground">zsee@usc.edu</p>
                   </div>
                 </a>
                 
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/in/zhi-hahn-see/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg transition-colors hover:bg-secondary/50"
@@ -87,7 +87,7 @@ const Contact = () => {
                 </a>
                 
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/zhihahn-see" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg transition-colors hover:bg-secondary/50"

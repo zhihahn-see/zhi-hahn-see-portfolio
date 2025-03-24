@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import { useTypewriter } from '@/utils/animations';
 
 const Hero = () => {
-  const { displayText } = useTypewriter('Hello, I\'m Zhi-Hahn See', 80);
-  const { displayText: subtitle } = useTypewriter('Software Engineer & Community Leader', 50, displayText.length === 'Hello, I\'m Zhi-Hahn See'.length);
+  const { displayText } = useTypewriter('Hello, I\'m Zhi-Hahn See');
+  const { displayText: subtitle } = useTypewriter('Software Engineer & Community Leader', { startDelay: 1000 });
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
@@ -25,14 +25,9 @@ const Hero = () => {
             <span className="inline-block ml-1 animate-pulse">|</span>
           </h1>
           
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-8">
-            {subtitle}
-          </h2>
-          
           <p className="text-muted-foreground mb-8 max-w-lg">
-            Passionate about software development, cloud computing, and building 
-            meaningful applications. Currently studying Computer Science at USC 
-            and actively engaged in community service.
+            Passionate about software development and building meaningful applications. 
+            Currently studying Computer Science at USC.
           </p>
           
           <div className="flex flex-wrap gap-4">

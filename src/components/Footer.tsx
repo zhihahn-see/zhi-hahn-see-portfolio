@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <h2 className="text-2xl font-bold font-display tracking-tight">Zhi-Hahn See</h2>
-            <p className="text-muted-foreground mt-1">Software Engineer & Community Leader</p>
+            <p className="text-muted-foreground mt-1">Software Engineer</p>
           </div>
           
           <div className="flex gap-6">
@@ -33,12 +33,6 @@ const Footer = () => {
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Education
-            </a>
-            <a 
-              href="#community" 
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Community
             </a>
             <a 
               href="#contact" 

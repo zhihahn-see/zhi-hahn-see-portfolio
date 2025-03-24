@@ -7,7 +7,6 @@ interface EducationItem {
   institution: string;
   degree: string;
   period: string;
-  description?: string;
   logo: string;
 }
 
@@ -17,7 +16,6 @@ const educationItems: EducationItem[] = [
     institution: "University of Southern California",
     degree: "Bachelor of Science in Computer Science",
     period: "Expected May 2026",
-    description: "Pursuing a comprehensive computer science education with a focus on software development and cloud computing technologies.",
     logo: "https://media.licdn.com/dms/image/v2/C4E0BAQHatTfEv4Af6w/company-logo_400_400/company-logo_400_400/0/1631312619853?e=1748476800&v=beta&t=uyoszhjWfIcKkMYsqUt2_9-H-yjLnbGX2pcbN8ynN9w"
   },
   {
@@ -25,7 +23,6 @@ const educationItems: EducationItem[] = [
     institution: "University of California, Davis",
     degree: "Computer Engineering",
     period: "2022-2023",
-    description: "Initial studies in computer engineering, establishing a solid foundation in both hardware and software principles.",
     logo: "https://media.licdn.com/dms/image/v2/C4E0BAQEBG25KNBwuCQ/company-logo_400_400/company-logo_400_400/0/1630629297217/uc_davis_logo?e=1748476800&v=beta&t=9z1dvp0bPB1grBjitWdmifKy0U8-e7a3vPliXN-Qeqg"
   },
   {
@@ -33,7 +30,6 @@ const educationItems: EducationItem[] = [
     institution: "The John Cooper School",
     degree: "High School Diploma",
     period: "2017-2022",
-    description: "Comprehensive high school education with foundation courses in computer science and STEM fields.",
     logo: "https://media.licdn.com/dms/image/v2/C4E0BAQGKBECNQGC3tQ/company-logo_400_400/company-logo_400_400/0/1630582221834/john_cooper_school_logo?e=1748476800&v=beta&t=QkAlShATAqcj-JwgdZ7z7enCIJVYvdgVfXx0S2_SDUs"
   }
 ];
@@ -46,9 +42,6 @@ const Education = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="scroll-trigger">
           <h2 className="section-title">Education</h2>
-          <p className="section-subtitle">
-            My academic journey and educational background
-          </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -75,13 +68,7 @@ const Education = () => {
                   </span>
                 </div>
                 
-                <h4 className="text-primary font-medium mb-4">{item.degree}</h4>
-                
-                {item.description && (
-                  <p className="text-muted-foreground text-sm">
-                    {item.description}
-                  </p>
-                )}
+                <h4 className="text-primary font-medium">{item.degree}</h4>
               </div>
             </div>
           ))}

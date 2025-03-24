@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Education from '@/components/Education';
-import Volunteering from '@/components/Volunteering';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/utils/animations';
@@ -27,7 +26,6 @@ const Index = () => {
         <Experience />
         <Skills />
         <Education />
-        <Volunteering />
         <Contact />
       </main>
       

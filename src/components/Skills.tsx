@@ -3,53 +3,29 @@ import { useScrollAnimation } from '@/utils/animations';
 
 interface SkillCategory {
   title: string;
-  skills: {
-    name: string;
-    level: number;
-  }[];
+  skills: string[];
 }
 
 const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
-    skills: [
-      { name: "TypeScript", level: 90 },
-      { name: "JavaScript", level: 90 },
-      { name: "Java", level: 85 },
-      { name: "SQL", level: 80 },
-    ]
+    skills: ["TypeScript", "JavaScript", "Java", "SQL"]
   },
   {
     title: "Frontend Development",
-    skills: [
-      { name: "React.js", level: 90 },
-      { name: "CSS", level: 85 },
-      { name: "Figma", level: 75 },
-    ]
+    skills: ["React.js", "CSS", "Figma"]
   },
   {
     title: "Backend & Databases",
-    skills: [
-      { name: "Node.js", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "MySQL", level: 75 },
-    ]
+    skills: ["Node.js", "PostgreSQL", "MySQL"]
   },
   {
     title: "DevOps & Tools",
-    skills: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 75 },
-      { name: "CI/CD", level: 80 },
-      { name: "GitHub", level: 85 },
-    ]
+    skills: ["Git", "Docker", "CI/CD", "GitHub"]
   },
   {
     title: "Methodologies",
-    skills: [
-      { name: "Agile Development", level: 90 },
-      { name: "Leadership", level: 85 },
-    ]
+    skills: ["Agile Development", "Leadership"]
   }
 ];
 
@@ -76,9 +52,6 @@ const Skills = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="scroll-trigger">
           <h2 className="section-title">Skills & Expertise</h2>
-          <p className="section-subtitle">
-            A comprehensive view of my technical abilities and specializations
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 mt-16">
@@ -90,29 +63,15 @@ const Skills = () => {
               >
                 <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
                 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <div 
-                      key={skill.name} 
-                      className="scroll-trigger"
-                      style={{ transitionDelay: `${skillIndex * 100}ms` }}
+                    <span 
+                      key={skill} 
+                      className="skill-chip scroll-trigger"
+                      style={{ transitionDelay: `${skillIndex * 50}ms` }}
                     >
-                      <div className="flex justify-between mb-1">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-muted-foreground text-sm">{skill.level}%</span>
-                      </div>
-                      
-                      <div className="skill-bar">
-                        <div 
-                          className="skill-progress" 
-                          style={{ 
-                            width: `${skill.level}%`,
-                            transition: 'width 1s ease-in-out',
-                            backgroundColor: `hsl(${210 + categoryIndex * 30}, 80%, 60%)`
-                          }}
-                        ></div>
-                      </div>
-                    </div>
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
