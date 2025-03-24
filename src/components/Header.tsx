@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from 'react';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,11 +78,38 @@ const Header = () => {
         </nav>
         
         <div className="md:hidden">
-          <button className="p-2 text-foreground" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="p-2 text-foreground" aria-label="Menu">
+                <Menu className="w-6 h-6" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[250px] sm:w-[300px]">
+              <nav className="flex flex-col space-y-4 mt-8">
+                {[
+                  { id: 'home', label: 'Home' },
+                  { id: 'experience', label: 'Experience' },
+                  { id: 'skills', label: 'Skills' },
+                  { id: 'education', label: 'Education' },
+                  { id: 'contact', label: 'Contact' }
+                ].map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      scrollToSection(item.id);
+                      document.querySelector('[data-state="open"]')?.setAttribute('data-state', 'closed');
+                    }}
+                    className={cn(
+                      'nav-link text-left py-2 px-4 rounded-md hover:bg-accent/10',
+                      activeSection === item.id && 'bg-accent/10 font-medium'
+                    )}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
