@@ -64,31 +64,29 @@ interface TypewriterOptions {
 
 export function useTypewriter(text: string, options: TypewriterOptions = {}) {
   const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
   const { startDelay = 0 } = options;
   
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let currentIndex = 0;
+    setDisplayText('');
     
-    if (startDelay > 0 && currentIndex === 0) {
-      timeout = setTimeout(() => {
-        setCurrentIndex(1);
-      }, startDelay);
-      return () => clearTimeout(timeout);
-    }
-    
-    if (currentIndex > 0 && currentIndex <= text.length) {
-      timeout = setTimeout(() => {
-        setDisplayText(text.substring(0, currentIndex));
-        setCurrentIndex(prevIndex => prevIndex + 1);
+    // Initial delay before starting to type
+    const initialTimeout = setTimeout(() => {
+      // Start typing after initial delay
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= text.length) {
+          setDisplayText(text.substring(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
       }, 80);
       
-      return () => clearTimeout(timeout);
-    } else if (currentIndex > text.length) {
-      setIsComplete(true);
-    }
-  }, [currentIndex, text, startDelay]);
+      return () => clearInterval(typingInterval);
+    }, startDelay);
+    
+    return () => clearTimeout(initialTimeout);
+  }, [text, startDelay]);
 
-  return { displayText, isComplete };
+  return { displayText };
 }

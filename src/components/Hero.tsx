@@ -4,7 +4,6 @@ import { useTypewriter } from '@/utils/animations';
 
 const Hero = () => {
   const { displayText } = useTypewriter('Hello, I\'m Zhi-Hahn See');
-  const { displayText: subtitle } = useTypewriter('Software Engineer & Community Leader', { startDelay: 1000 });
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">

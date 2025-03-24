@@ -47,9 +47,6 @@ const Contact = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="scroll-trigger">
           <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
-            Let's connect and discuss opportunities
-          </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 mt-16 max-w-5xl mx-auto">

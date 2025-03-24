@@ -18,7 +18,7 @@ const experiences: ExperienceItem[] = [
     title: "Software Development Engineer Intern",
     company: "Amazon",
     period: "Starting May 2025",
-    description: "Incoming Software Development Engineer Intern at Amazon.",
+    description: "🔆 Summer 2025",
     logo: "https://media.licdn.com/dms/image/v2/C560BAQHTvZwCx4p2Qg/company-logo_400_400/company-logo_400_400/0/1630640869849/amazon_logo?e=1748476800&v=beta&t=V5QQJgngdbKMBP_VAh03OK_t4xWiYInHFjACa3dbtYw",
   },
   {
@@ -52,7 +52,7 @@ const experiences: ExperienceItem[] = [
     id: "efta",
     title: "Information Technology Intern",
     company: "Education for Tomorrow Alliance",
-    period: "June 2021 — July 2021",
+    period: "Summer 2021",
     description: "👨‍💻 Strategized I.T. solutions and attended workshops",
     logo: "https://media.licdn.com/dms/image/v2/C560BAQEWGQy46kXYCg/company-logo_400_400/company-logo_400_400/0/1630565661618/educationfortomorrow_logo?e=1748476800&v=beta&t=C4XKrCDS3E7eL87ZdV0fxbS8zXEySCoHon-xjjzq9yQ",
     tags: ["IT Support", "Educational Technology"]

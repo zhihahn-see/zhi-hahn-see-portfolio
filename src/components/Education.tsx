@@ -22,14 +22,14 @@ const educationItems: EducationItem[] = [
     id: "ucdavis",
     institution: "University of California, Davis",
     degree: "Computer Engineering",
-    period: "2022-2023",
+    period: "2022 — 2023",
     logo: "https://media.licdn.com/dms/image/v2/C4E0BAQEBG25KNBwuCQ/company-logo_400_400/company-logo_400_400/0/1630629297217/uc_davis_logo?e=1748476800&v=beta&t=9z1dvp0bPB1grBjitWdmifKy0U8-e7a3vPliXN-Qeqg"
   },
   {
     id: "jcs",
     institution: "The John Cooper School",
     degree: "High School Diploma",
-    period: "2017-2022",
+    period: "2017 — 2022",
     logo: "https://media.licdn.com/dms/image/v2/C4E0BAQGKBECNQGC3tQ/company-logo_400_400/company-logo_400_400/0/1630582221834/john_cooper_school_logo?e=1748476800&v=beta&t=QkAlShATAqcj-JwgdZ7z7enCIJVYvdgVfXx0S2_SDUs"
   }
 ];
