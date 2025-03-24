@@ -21,23 +21,21 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "DevOps & Tools",
-    skills: ["Git", "Docker", "Jira", "GitHub", "Bamboo", "CloudForge"]
+    skills: ["Git", "GitHub", "pgAdmin", "Docker", "Jira", "Bamboo", "CloudForge"]
   }
 ];
 
 const specialties = [
   "Software Development",
-  "Cloud Computing",
-  "Application Design",
-  "Web Development",
-  "Database Management",
+  "Full Stack Development",
   "Version Control",
-  "Project Management",
+  "Agile and Scrum Methodologies",
   "UI/UX Design",
-  "Responsive Design",
-  "API Development",
+  "Documentation Writing",
   "Team Leadership",
-  "Problem Solving"
+  "Problem Solving",
+  "Collaboration",
+  "Mentorship"
 ];
 
 const Skills = () => {
@@ -89,26 +87,6 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
-            
-            <div className="glass-card rounded-xl p-6 md:p-8 scroll-trigger">
-              <h3 className="text-xl font-semibold mb-4">Professional Summary</h3>
-              
-              <p className="text-muted-foreground mb-4">
-                As a dedicated software engineer with a focus on full-stack development,
-                I combine technical expertise with leadership abilities to deliver
-                impactful solutions. My experience spans from frontend design to 
-                backend implementation, with a particular interest in cloud computing
-                and application design.
-              </p>
-              
-              <p className="text-muted-foreground">
-                I thrive in collaborative environments where I can apply my 
-                problem-solving skills and technical knowledge to create efficient, 
-                user-friendly applications. My background in both academic research 
-                and industry internships has equipped me with a versatile skill set 
-                and a holistic approach to software development.
-              </p>
             </div>
           </div>
         </div>

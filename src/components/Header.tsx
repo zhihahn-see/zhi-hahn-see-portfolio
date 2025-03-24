@@ -1,10 +1,12 @@
-
 import { useState, useEffect } from 'react';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,7 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsOpen(false);
   };
 
   return (
@@ -76,11 +79,36 @@ const Header = () => {
         </nav>
         
         <div className="md:hidden">
-          <button className="p-2 text-foreground" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <button className="p-2 text-foreground" aria-label="Menu">
+                <Menu className="w-6 h-6" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="top" className="pt-16 pb-6 px-4">
+              <nav className="flex flex-col space-y-4">
+                {[
+                  { id: 'home', label: 'Home' },
+                  { id: 'experience', label: 'Experience' },
+                  { id: 'skills', label: 'Skills' },
+                  { id: 'education', label: 'Education' },
+                  { id: 'contact', label: 'Contact' }
+                ].map(item => (
+                  <SheetClose key={item.id} asChild>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={cn(
+                        'nav-link text-left py-2 px-4 rounded-md hover:bg-accent/10',
+                        activeSection === item.id && 'bg-accent/10 font-medium'
+                      )}
+                    >
+                      {item.label}
+                    </button>
+                  </SheetClose>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
