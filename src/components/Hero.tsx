@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
         <div className="relative z-10">
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium animate-fade-in">
-            Incoming SDE Intern at Amazon
+            SDE Intern at Amazon
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
@@ -48,7 +48,7 @@ const Hero = () => {
         <div className="relative">
           <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden animate-float">
             <img 
-              src="https://media.licdn.com/dms/image/v2/D5603AQEkZ0whuKeJ_w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699296548476?e=1748476800&v=beta&t=JANkIAI-Kc97o25ur3Qg96jZMYF7Ogd3f_GooY04h_c" 
+              src="logos/headshot.jpg" 
               alt="Zhi-Hahn See"
               className="object-cover w-full h-full" 
               loading="lazy"
